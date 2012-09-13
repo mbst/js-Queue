@@ -7,8 +7,7 @@ var Queue = function(queue, interval, callback){
 };
 
 Queue.prototype.start = function(){
-    var q = this,
-        currentItem = 0;
+    var q = this;
    
     if(q.paused === false){
         if(q.queueLength > 0 && q.queue[0]){
