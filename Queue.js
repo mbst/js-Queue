@@ -9,9 +9,9 @@ var Queue = function(queue, interval, callback){
 Queue.prototype.start = function(){
     var q = this;
    
-    if(q.paused === false){
-        if(q.queueLength > 0 && q.queue[0]){
-            if(q.queue[0].callback){
+    if (q.paused === false) {
+        if (q.queueLength > 0 && q.queue[0]) {
+            if (q.queue[0].callback) {
                 q.queue[0].fn(q.queue[0].args, q.queue[0].callback);
             } else {
                 q.queue[0].fn(q.queue[0].args);
@@ -21,7 +21,7 @@ Queue.prototype.start = function(){
             
             q.queueLength = q.queue.length;
             
-            if(q.interval){
+            if (q.interval) {
                 setTimeout(function(){
                     q.start();
                 }, q.interval);
@@ -29,7 +29,7 @@ Queue.prototype.start = function(){
                 q.start();
             }
         } else {
-            if(q.callback){
+            if (q.callback) {
                 q.callback(true);
                 return true;
             }
@@ -58,3 +58,7 @@ Queue.prototype.flush = function(){
     q.interval = 0;
     q.start();
 };
+
+if (module && module.exports) {
+    module.exports = Queue;
+}
