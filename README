@@ -3,6 +3,8 @@ About
 
 js-Queue is a simple Queue implementation for Javacsript.
 
+jsFiddle: http://jsfiddle.net/n8E3p/
+
 How
 ==
 
@@ -68,3 +70,6 @@ How
         },
         20000
     );​
+
+
+Licence
