@@ -1,8 +1,10 @@
-# About
+About
+==
 
 js-Queue is a simple Queue implementation for Javacsript.
 
-# How
+How
+==
 
     // Set up your queue by pushing functions to a queue
     var list = [];
@@ -26,29 +28,43 @@ js-Queue is a simple Queue implementation for Javacsript.
           num: i
         },
         callback: function(num){
-          console.log(num);
+          console.log(num + ', ');
         }
       });
     }
 
     // Init the queue
-    var queue = new Queue(list, 5000, function(){
+    var queue = new Queue(list, 1000, function(){
       // On completion
+        document.write('Done');
     });
 
     queue.start();
 
     setTimeout(
-      queue.pause,
-      5000
+        function(){
+            queue.pause()
+        },
+        5000
     );
 
     setTimeout(
-      queue.resume,
-      10000
+        function(){
+            queue.resume()
+        },
+        10000
     );
 
     setTimeout(
-      queue.flush,
-      15000
+        function(){
+            queue.pause()
+        },
+        15000
     );
+
+    setTimeout(
+        function(){
+            queue.flush()
+        },
+        20000
+    );​
